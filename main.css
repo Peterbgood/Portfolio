@@ -1,5 +1,4 @@
 /* Global Styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,149 +7,228 @@
 
 body {
   font-family: "Dosis", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   color: #333;
   scroll-behavior: smooth;
+  background-color: #f4f7fa;
 }
 
 a {
   text-decoration: none;
-  color: #337ab7;
+  color: #007bff;
 }
 
 a:hover {
-  color: #23527c;
+  color: #0056b3;
 }
 
+/* Navigation */
+.navBG {
+  background: #1a2a44;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
+  font-size: 1.8rem;
+  font-family: "Pacifico", cursive;
+  color: #fff !important;
+  transition: color 0.3s ease;
 }
 
-.navbar-brand::before {
-  content: "P";
-  font-size: 1.5rem;
-  font-family: 'Pacifico', cursive;
-  color: #fff;
-}
-
-.navbar-brand::after {
-  content: "G";
-  font-size: 1.5rem;
-  font-family: 'Pacifico', cursive;
-  color: #03A9F4;
-}
-
-/* Header Styles */
-
-.navbar-dark.bg-primary {
-  background-color: #2c3e50 !important;
-}
-
-.navbar-brand img {
-  width: 30px;
-  height: 30px;
-  margin-top: -5px;
+.navbar-brand:hover {
+  color: #56b3fa !important;
 }
 
 .nav-item a {
-  font-size: 1rem;
   font-weight: 600;
   color: #fff;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
 }
 
 .nav-item a:hover {
-  color: #ccc;
+  color: #56b3fa;
 }
 
-/* Hero Section Styles */
-
-.BannerText {
-  background: linear-gradient(to bottom, #56b3fa, #2c3e50);
-  background-size: 100% 300px;
-  background-position: 0% 100%;
-  height: 300px;
+/* Hero Section */
+.hero-section .BannerText {
+  background: linear-gradient(135deg, #56b3fa 0%, #1a2a44 100%);
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   color: #fff;
-  flex-direction: column; /* add this line */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .BannerText h1 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  text-align: center; /* add this line */
 }
 
-/* Portfolio Styles */
+.BannerText p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 
+/* Portfolio Section */
 .PortfolioBG {
-  background-color: #f7f7f7;
-  
+  padding: 60px 0;
+  background: #fff;
 }
 
 .PortfolioBG h2 {
-  text-align: center;
-  margin: 50px auto;
-  text-decoration: none;
-  border-bottom: 5px solid #337ab7;
-  max-width: 500px;
-  color: #333;
+  font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.PortfolioBG h2::after {
+  content: '';
+  width: 100px;
+  height: 4px;
+  background: #56b3fa;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .card {
-  margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* About Styles */
+.card-img-top {
+  border-bottom: 3px solid #56b3fa;
+}
 
+.card-body {
+  text-align: center;
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a2a44;
+}
+
+/* About Section */
 .AboutBG {
-  background-color: #fff;
- 
-}
-
-.profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 60px 0;
+  background: #f4f7fa;
 }
 
 .AboutBG h2 {
-  text-align: center;
-  margin: 50px auto;
-  text-decoration: none;
-  border-bottom: 5px solid #337ab7;
-  max-width: 500px;
-  color: #333;
+  font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
 }
 
-/* Footer Styles */
+.AboutBG h2::after {
+  content: '';
+  width: 100px;
+  height: 4px;
+  background: #56b3fa;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #56b3fa;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.About p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.contact-section h2::after {
+  content: '';
+  width: 100px;
+  height: 4px;
+  background: #56b3fa;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-form {
+  max-width: 600px;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  padding: 12px;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background: #56b3fa;
+  border: none;
+  padding: 12px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #1a2a44;
+}
+
+/* Footer */
 footer {
-  background-color: #2c3e50;
-  padding: 2rem;
-  text-align: center;
+  background: #1a2a44;
+  padding: 40px 0;
   color: #fff;
 }
 
-footer a {
-  color: #fff;
+footer img {
+  margin: 0 15px;
+  transition: transform 0.3s ease;
 }
 
-footer a:hover {
-  color: #ccc;
+footer img:hover {
+  transform: scale(1.2);
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 0.9rem;
 }
