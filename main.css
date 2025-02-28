@@ -11,6 +11,7 @@ body {
   color: #333;
   scroll-behavior: smooth;
   background-color: #f4f7fa;
+  font-size: 1.2rem;
 }
 
 a {
@@ -24,30 +25,34 @@ a:hover {
 
 /* Navigation */
 .navBG {
-  background: #1a2a44;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.navBG .navbar {
+  background: linear-gradient(90deg, #1a2a44 0%, #2a3a54 100%) !important; /* Darker gradient */
+}
+
 .navbar-brand {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-family: "Pacifico", cursive;
   color: #fff !important;
   transition: color 0.3s ease;
 }
 
 .navbar-brand:hover {
-  color: #56b3fa !important;
+  color: #56b3fa !important; /* Keeps the brighter blue for hover */
 }
 
 .nav-item a {
   font-weight: 600;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 24px;
+  font-size: 1.3rem;
   transition: color 0.3s ease;
 }
 
 .nav-item a:hover {
-  color: #56b3fa;
+  color: #56b3fa; /* Keeps the brighter blue for hover */
 }
 
 /* Hero Section */
@@ -63,36 +68,36 @@ a:hover {
 }
 
 .BannerText h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .BannerText p {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 400;
 }
 
 /* Portfolio Section */
 .PortfolioBG {
-  padding: 60px 0;
+  padding: 70px 0;
   background: #fff;
 }
 
 .PortfolioBG h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   position: relative;
 }
 
 .PortfolioBG h2::after {
   content: '';
-  width: 100px;
+  width: 120px;
   height: 4px;
   background: #56b3fa;
   position: absolute;
-  bottom: -10px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -116,42 +121,42 @@ a:hover {
 
 .card-body {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #1a2a44;
 }
 
 /* About Section */
 .AboutBG {
-  padding: 60px 0;
+  padding: 70px 0;
   background: #f4f7fa;
 }
 
 .AboutBG h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   position: relative;
 }
 
 .AboutBG h2::after {
   content: '';
-  width: 100px;
+  width: 120px;
   height: 4px;
   background: #56b3fa;
   position: absolute;
-  bottom: -10px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .profile-picture {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid #56b3fa;
@@ -159,31 +164,31 @@ a:hover {
 }
 
 .About p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.8;
   color: #555;
 }
 
 /* Contact Section */
 .contact-section {
-  padding: 60px 0;
+  padding: 70px 0;
   background: #fff;
 }
 
 .contact-section h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   position: relative;
 }
 
 .contact-section h2::after {
   content: '';
-  width: 100px;
+  width: 120px;
   height: 4px;
   background: #56b3fa;
   position: absolute;
-  bottom: -10px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -195,15 +200,15 @@ a:hover {
 .form-control {
   border-radius: 10px;
   border: 2px solid #ddd;
-  padding: 12px;
-  font-size: 1.1rem;
+  padding: 14px;
+  font-size: 1.3rem;
 }
 
 .btn-primary {
   background: #56b3fa;
   border: none;
-  padding: 12px;
-  font-size: 1.2rem;
+  padding: 14px;
+  font-size: 1.4rem;
   border-radius: 10px;
   transition: background 0.3s ease;
 }
@@ -215,7 +220,7 @@ a:hover {
 /* Footer */
 footer {
   background: #1a2a44;
-  padding: 40px 0;
+  padding: 50px 0;
   color: #fff;
 }
 
@@ -229,6 +234,6 @@ footer img:hover {
 }
 
 footer p {
-  margin-top: 20px;
-  font-size: 0.9rem;
+  margin-top: 25px;
+  font-size: 1.1rem;
 }
