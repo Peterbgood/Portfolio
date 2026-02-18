@@ -91,25 +91,31 @@ footer {
 
 .muted { color: var(--muted); }
 
-.social-icon {
-    display: inline-flex;
-    align-items: center;
+.social-container {
+    display: flex;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: #1e293b;  /* dark circle */
-    border-radius: 50%;
-    transition: transform 0.2s, background 0.3s;
+    align-items: center;
+    gap: 20px;
+    background: #1e293b;   /* dark background behind all icons */
+    padding: 10px 50px;    /* vertical and horizontal padding */
+    border-radius: 30px;   /* fully rounded edges for pill look */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: fit-content;    /* container wraps icons snugly */
+    margin: 0 auto;        /* center horizontally */
 }
 
-.social-icon img {
-    filter: brightness(0) invert(1); /* ensures white logos are visible */
+.social-container a img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1); /* ensures logos are visible */
+    transition: transform 0.2s;
 }
 
-.social-icon:hover {
+.social-container a:hover img {
     transform: scale(1.1);
-    background: #2563eb;  /* accent color on hover */
 }
+
 
 
 
@@ -255,17 +261,19 @@ peterwgood@gmail.com
 
 <!-- Social Links -->
 <!-- Social Links -->
-<p class="mt-4 d-flex justify-content-center gap-3">
-    <a href="https://www.linkedin.com/in/peter-good-2104b965/" class="social-icon" target="_blank">
+<!-- Social Links -->
+<div class="social-container mt-4 mx-auto">
+    <a href="https://www.linkedin.com/in/peter-good-2104b965/" target="_blank">
         <img src="images/LI-In-Bug.png" width="40" alt="LinkedIn">
     </a>
-    <a href="https://www.facebook.com/peterwgood/" class="social-icon" target="_blank">
+    <a href="https://www.facebook.com/peterwgood/" target="_blank">
         <img src="images/f_logo_RGB-White_58.png" width="40" alt="Facebook">
     </a>
-    <a href="https://github.com/peterwgood/" class="social-icon" target="_blank">
+    <a href="https://github.com/peterwgood/" target="_blank">
         <img src="images/github-mark-white.png" width="40" alt="GitHub">
     </a>
-</p>
+</div>
+
 
 
 </div>
