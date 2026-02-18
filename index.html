@@ -91,6 +91,28 @@ footer {
 
 .muted { color: var(--muted); }
 
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #1e293b;  /* dark circle */
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.social-icon img {
+    filter: brightness(0) invert(1); /* ensures white logos are visible */
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background: #2563eb;  /* accent color on hover */
+}
+
+
+
 </style>
 </head>
 
@@ -166,6 +188,7 @@ using modern CSS, JavaScript, and CMS platforms including DNN and WordPress.
 </section>
 
 <!-- WORK -->
+<!-- WORK -->
 <section id="work">
 <div class="container">
 <h2 class="text-center mb-5">Selected Work</h2>
@@ -177,7 +200,7 @@ using modern CSS, JavaScript, and CMS platforms including DNN and WordPress.
 <div class="project-img" style="background-image:url('gdw.png')"></div>
 <div class="p-4">
 <h5 class="text-primary">Geo. D. Warthen Bank</h5>
-<p class="muted small">Accessible banking interface meeting WCAG AA standards.</p>
+<p class="muted small">Built the **entire responsive site** from scratch with a focus on accessibility (WCAG AA) and secure banking interfaces.</p>
 <a href="https://www.gdwbank.com/" target="_blank" class="btn btn-sm btn-accent">Visit Site</a>
 </div>
 </div>
@@ -188,7 +211,7 @@ using modern CSS, JavaScript, and CMS platforms including DNN and WordPress.
 <div class="project-img" style="background-image:url('vastbank.png')"></div>
 <div class="p-4">
 <h5 class="text-primary">Vast Bank</h5>
-<p class="muted small">Custom responsive theme built for DNN CMS.</p>
+<p class="muted small">Developed the **full site** using DNN CMS, including custom theme and responsive layouts optimized for user trust and cross-browser compatibility.</p>
 <a href="http://www.vast.bank" target="_blank" class="btn btn-sm btn-accent">Visit Site</a>
 </div>
 </div>
@@ -199,8 +222,8 @@ using modern CSS, JavaScript, and CMS platforms including DNN and WordPress.
 <div class="project-img" style="background-image:url('Fbot.png')"></div>
 <div class="p-4">
 <h5 class="text-primary">Fidelity Bank</h5>
-<p class="muted small">Mobile-first redesign improving usability and speed.</p>
-<a href="http://www.fbot.com" target="_blank" class="btn btn-sm btn-accent">Visit Site</a>
+<p class="muted small">Led the **entire front-end rebuild**, creating a mobile-first, fast-loading site with a polished user experience and WCAG compliance.</p>
+<a href="http://www.ozonabank.com" target="_blank" class="btn btn-sm btn-accent">Visit Site</a>
 </div>
 </div>
 </div>
@@ -208,6 +231,7 @@ using modern CSS, JavaScript, and CMS platforms including DNN and WordPress.
 </div>
 </div>
 </section>
+
 
 <!-- CONTACT -->
 <!-- CONTACT -->
@@ -230,11 +254,19 @@ peterwgood@gmail.com
 </p>
 
 <!-- Social Links -->
-<p class="mt-4">
-    <a href="https://www.linkedin.com/in/peter-good-2104b965/"><img src="images/LI-In-Bug.png" width="50" alt="LinkedIn"></a>
-    <a href="https://www.facebook.com/peterwgood/"><img src="images/f_logo_RGB-White_58.png" width="50" alt="Facebook"></a>
-    <a href="https://github.com/peterwgood/"><img src="images/github-mark-white.png" width="50" alt="GitHub"></a>
+<!-- Social Links -->
+<p class="mt-4 d-flex justify-content-center gap-3">
+    <a href="https://www.linkedin.com/in/peter-good-2104b965/" class="social-icon" target="_blank">
+        <img src="images/LI-In-Bug.png" width="40" alt="LinkedIn">
+    </a>
+    <a href="https://www.facebook.com/peterwgood/" class="social-icon" target="_blank">
+        <img src="images/f_logo_RGB-White_58.png" width="40" alt="Facebook">
+    </a>
+    <a href="https://github.com/peterwgood/" class="social-icon" target="_blank">
+        <img src="images/github-mark-white.png" width="40" alt="GitHub">
+    </a>
 </p>
+
 
 </div>
 </div>
