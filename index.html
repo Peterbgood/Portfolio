@@ -18,7 +18,6 @@
         nav { backdrop-filter: blur(16px); }
         .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); }
         
-        /* Centered glow for color profile picture */
         .img-container {
             position: relative;
             z-index: 10;
@@ -38,6 +37,11 @@
         .tech-badge {
             @apply px-3 py-1 rounded-full border border-slate-700 bg-slate-800/50 text-[10px] font-black uppercase tracking-widest text-slate-400;
         }
+
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #2563eb, #1e293b);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200">
@@ -46,19 +50,19 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white">PG</div>
-                <span class="font-black text-xl tracking-tighter">Peter Good</span>
+                <span class="font-black text-xl tracking-tighter text-white">Peter Good</span>
             </div>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
                 <a href="#work" class="hover:text-white transition">Enterprise Work</a>
-                <a href="#timeline" class="hover:text-white transition">Experience</a>
+                <a href="#experience" class="hover:text-white transition">Experience</a>
                 <a href="#rd" class="hover:text-white transition">React R&D</a>
             </div>
             <div class="flex items-center gap-4">
                 <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="text-slate-400 hover:text-white transition text-xl">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="Peter_Good_Frontend_Portfolio.pdf" download class="bg-blue-600 text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-blue-500 transition shadow-lg shadow-blue-500/20">
-                    Resume <i class="fas fa-download ml-2"></i>
+                <a href="Peter_Good_Frontend_Portfolio.pdf" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-blue-500 transition shadow-lg shadow-blue-500/20">
+                    Resume <i class="fas fa-external-link ml-2"></i>
                 </a>
             </div>
         </div>
@@ -70,12 +74,12 @@
             <div>
                 <span class="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Senior Frontend Engineer</span>
                 
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none text-white">
                     Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Enterprise</span> Excellence
                 </h1>
                 
                 <p class="text-xl text-slate-400 max-w-lg leading-relaxed mb-6">
-                    Strategic Senior Engineer with over 13 years of experience architecting high-stakes **React** ecosystems. Expert in bridging legacy financial infrastructure with modern **Vite** workflows while enforcing rigorous **WCAG 2.2 AA** accessibility standards.
+                    Strategic Senior Engineer with over 13 years of experience architecting high-stakes **React** ecosystems. Expert in bridging legacy financial infrastructure with modern **Vite** workflows while enforcing rigorous **WCAG 2.2 AA** accessibility standards[cite: 5, 7, 35].
                 </p>
 
                 <div class="flex flex-wrap gap-2 mb-10">
@@ -90,7 +94,7 @@
                     <a href="https://github.com/Peterbgood" target="_blank" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-blue-500 hover:text-white transition flex items-center gap-2 shadow-xl shadow-white/5">
                         View GitHub <i class="fab fa-github text-sm"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="glass-card border border-slate-700 px-8 py-4 rounded-2xl font-bold hover:border-slate-500 transition">
+                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="glass-card border border-slate-700 px-8 py-4 rounded-2xl font-bold hover:border-slate-500 transition text-white">
                         Connect
                     </a>
                 </div>
@@ -104,16 +108,73 @@
         </div>
     </header>
 
-    <section id="work" class="py-24 bg-slate-900/30">
+    <section class="py-20 border-b border-slate-800/50 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div>
+                <p class="text-5xl font-black text-white">13+ Yrs</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">FIS Career [cite: 44]</p>
+            </div>
+            <div>
+                <p class="text-5xl font-black text-white">50+</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">Bank Platforms [cite: 17, 45]</p>
+            </div>
+            <div>
+                <p class="text-5xl font-black text-white">500k+</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">Active Users [cite: 6, 17]</p>
+            </div>
+            <div>
+                <p class="text-5xl font-black text-white italic">AA</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">WCAG Standard [cite: 18, 46]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-slate-900/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-title text-5xl mb-16 text-center italic text-white">Professional Career Arc</h2>
+            
+            <div class="relative">
+                <div class="absolute left-3 top-2 bottom-2 timeline-line hidden md:block"></div>
+                
+                <div class="space-y-20">
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-950 hidden md:block"></div>
+                        <h4 class="text-2xl font-bold text-white">Senior Frontend Developer | Technical Solutions Lead</h4>
+                        <div class="flex items-center gap-4 mt-1 mb-4">
+                            <span class="text-blue-500 font-black text-xs uppercase tracking-widest">FIS</span>
+                            <span class="text-slate-500 text-xs font-medium">February 2012 — March 2026 [cite: 15, 44]</span>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">
+                            Spearheaded R&D initiatives to evaluate **React** and modern build tools like **Vite** as strategic successors to legacy infrastructure[cite: 16, 47]. Architected and launched 50+ responsive banking platforms nationwide while spearheading **WCAG 2.2 AA** accessibility standards across the enterprise[cite: 17, 18, 45, 46].
+                        </p>
+                    </div>
+
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-950 hidden md:block"></div>
+                        <h4 class="text-2xl font-bold text-white">Account Manager / Technical Liaison</h4>
+                        <div class="flex items-center gap-4 mt-1 mb-4">
+                            <span class="text-slate-500 font-black text-xs uppercase tracking-widest">FIS</span>
+                            <span class="text-slate-500 text-xs font-medium">November 2006 — January 2012 [cite: 21, 51]</span>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">
+                            Managed technical relationships for 50+ financial institutions, ensuring high-stakes product deliveries aligned with complex business logic and regulatory requirements[cite: 22, 52, 53].
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 bg-slate-950">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-12 text-center md:text-left">
-                <h2 class="section-title text-5xl italic">Institutional Proof-of-Work</h2>
-                <p class="text-slate-500 mt-2">Enterprise deployments for leading financial institutions.</p>
+                <h2 class="section-title text-5xl italic text-white">Institutional Proof-of-Work</h2>
+                <p class="text-slate-500 mt-2">Enterprise deployments for leading financial institutions[cite: 17, 45].</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-blue-600">
-                    <h3 class="text-2xl font-bold mb-1">Geo. D. Warthen Bank</h3>
+                    <h3 class="text-2xl font-bold mb-1 text-white">Geo. D. Warthen Bank</h3>
                     <p class="text-blue-400 text-xs font-black uppercase tracking-widest mb-6">Core Architecture Build</p>
                     <p class="text-slate-400 italic mb-8">"Delivered a secure, high-scale responsive platform with 100% adherence to WCAG accessibility compliance."</p>
                     <a href="https://www.gdwbank.com/" target="_blank" class="text-sm font-bold text-white hover:text-blue-400 flex items-center gap-2">
@@ -122,7 +183,7 @@
                 </div>
 
                 <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-emerald-600">
-                    <h3 class="text-2xl font-bold mb-1">Vast Bank</h3>
+                    <h3 class="text-2xl font-bold mb-1 text-white">Vast Bank</h3>
                     <p class="text-emerald-400 text-xs font-black uppercase tracking-widest mb-6">CMS Migration</p>
                     <p class="text-slate-400 italic mb-8">"Modernized multi-tenant architecture for improved cross-browser stability and client user trust."</p>
                     <a href="https://www.vast.bank/" target="_blank" class="text-sm font-bold text-white hover:text-emerald-400 flex items-center gap-2">
@@ -131,7 +192,7 @@
                 </div>
 
                 <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-purple-600">
-                    <h3 class="text-2xl font-bold mb-1">Fidelity Bank</h3>
+                    <h3 class="text-2xl font-bold mb-1 text-white">Fidelity Bank</h3>
                     <p class="text-purple-400 text-xs font-black uppercase tracking-widest mb-6">Frontend Modernization</p>
                     <p class="text-slate-400 italic mb-8">"Led mobile-first architecture rebuild, balancing regulatory requirements with high-performance UX."</p>
                     <a href="http://www.fbot.com/" target="_blank" class="text-sm font-bold text-white hover:text-purple-400 flex items-center gap-2">
@@ -142,10 +203,10 @@
         </div>
     </section>
 
-    <section id="rd" class="py-24">
+    <section id="rd" class="py-24 bg-slate-900/20">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title text-5xl mb-4 italic">Strategic React R&D</h2>
-            <p class="text-slate-400 mb-12">Performance-driven UI patterns and specialized React infrastructure.</p>
+            <h2 class="section-title text-5xl mb-4 italic text-white">Strategic React R&D</h2>
+            <p class="text-slate-400 mb-12">Performance-driven UI patterns and specialized React infrastructure[cite: 7, 37].</p>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-card border border-slate-800 rounded-3xl p-8 group hover:border-blue-500/30 transition-all">
@@ -153,11 +214,11 @@
                         <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500">
                             <i class="fas fa-university text-2xl"></i>
                         </div>
-                        <a href="https://github.com/Peterbgood/modern-bank-landing" target=\"_blank\" class="text-slate-600 hover:text-white transition">
+                        <a href="https://github.com/Peterbgood/modern-bank-landing" target="_blank" class="text-slate-600 hover:text-white transition">
                             <i class="fab fa-github text-xl"></i>
                         </a>
                     </div>
-                    <h3 class="font-bold text-xl mb-3">Modern Bank UI</h3>
+                    <h3 class="font-bold text-xl mb-3 text-white">Modern Bank UI</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">High-conversion institutional landing architecture built with **React** and **Tailwind CSS**.</p>
                 </div>
 
@@ -166,12 +227,12 @@
                         <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
                             <i class="fas fa-chart-line text-2xl"></i>
                         </div>
-                        <a href="https://github.com/Peterbgood/marketing-crm" target=\"_blank\" class="text-slate-600 hover:text-white transition">
+                        <a href="https://github.com/Peterbgood/marketing-crm" target="_blank" class="text-slate-600 hover:text-white transition">
                             <i class="fab fa-github text-xl"></i>
                         </a>
                     </div>
-                    <h3 class="font-bold text-xl mb-3">Marketing CRM</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Enterprise dashboard architecture for customer dataset management and data-informed UI/UX.</p>
+                    <h3 class="font-bold text-xl mb-3 text-white">Marketing CRM</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Enterprise dashboard architecture for customer dataset management and data-informed UI/UX[cite: 27].</p>
                 </div>
 
                 <div class="glass-card border border-slate-800 rounded-3xl p-8 group hover:border-purple-500/30 transition-all">
@@ -179,19 +240,24 @@
                         <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500">
                             <i class="fas fa-database text-2xl"></i>
                         </div>
-                        <a href="https://github.com/Peterbgood/Career-Tracker" target=\"_blank\" class="text-slate-600 hover:text-white transition">
+                        <a href="https://github.com/Peterbgood/Career-Tracker" target="_blank" class="text-slate-600 hover:text-white transition">
                             <i class="fab fa-github text-xl"></i>
                         </a>
                     </div>
-                    <h3 class="font-bold text-xl mb-3">Career Tracker</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Advanced **CRUD** architecture featuring persistent state and dynamic filtering workflows.</p>
+                    <h3 class="font-bold text-xl mb-3 text-white">Career Tracker</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Advanced **CRUD** architecture featuring persistent state and dynamic filtering workflows[cite: 24, 57].</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="py-12 text-center border-t border-slate-900 bg-slate-950">
-        <p class="text-xs text-slate-600 tracking-widest uppercase">
+        <div class="flex justify-center gap-8 mb-6">
+            <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="text-slate-500 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="https://github.com/Peterbgood" target="_blank" class="text-slate-500 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+            <a href="mailto:peterwgood@gmail.com" class="text-slate-500 hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+        </div>
+        <p class="text-[10px] text-slate-700 tracking-widest uppercase">
             © 2026 PETER GOOD | ARCHITECTED WITH REACT & TAILWIND CSS
         </p>
     </footer>
