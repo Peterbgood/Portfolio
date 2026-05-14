@@ -6,260 +6,902 @@
     <title>Peter Good | Senior Frontend Architect</title>
     <meta name="description" content="Senior Frontend Engineer & Technical Solutions Architect specializing in React Fintech Platforms.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563EB'/></svg>">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
-        body { font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-        .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
-        .section-title { font-weight: 900; letter-spacing: -0.05em; }
-        nav { backdrop-filter: blur(16px); }
-        .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); }
-        
-        .img-container {
-            position: relative;
-            z-index: 10;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #080c14;
+            --bg-card: #0d1420;
+            --bg-card2: #111827;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.13);
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --muted2: #94a3b8;
+            --blue: #2563eb;
+            --blue-light: #60a5fa;
+            --teal: #0d9488;
+            --teal-light: #2dd4bf;
+            --accent: #38bdf8;
         }
-        .img-container::before {
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(8,12,20,0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            width: 32px; height: 32px;
+            background: var(--blue);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .nav-logo-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: -0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav-icon-link {
+            color: var(--muted);
+            font-size: 18px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .nav-icon-link:hover { color: #fff; }
+
+        /* HERO */
+        .hero {
+            padding: 140px 32px 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(ellipse 60% 60% at 70% 40%, rgba(37,99,235,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 30% 60%, rgba(13,148,136,0.05) 0%, transparent 60%),
+                var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 130%;
-            height: 130%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
-            z-index: -1;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-bottom: 20px;
+        }
+        .hero-label span {
+            color: var(--muted);
+            margin: 0 8px;
+        }
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(44px, 6vw, 76px);
+            line-height: 1.03;
+            color: #fff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        .hero-desc {
+            color: var(--muted2);
+            font-size: 15px;
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+        .hero-desc strong { color: var(--text); font-weight: 600; }
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border: 1px solid var(--border-hover);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
+
+        .hero-photo-wrap {
+            position: relative;
+        }
+        .hero-photo-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-photo {
+            width: 320px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            display: block;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-card);
+        }
+        .hero-photo-placeholder {
+            width: 320px;
+            height: 380px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
         }
 
-        .tech-badge {
-            @apply px-3 py-1 rounded-full border border-slate-700 bg-slate-800/50 text-[10px] font-black uppercase tracking-widest text-slate-400;
+        /* STATS */
+        .stats {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 48px 32px;
+        }
+        .stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 44px;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
         }
 
-        .timeline-line {
+        /* SECTIONS */
+        section { padding: 80px 32px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-header { margin-bottom: 48px; }
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: clamp(32px, 4vw, 48px);
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        .section-sub {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* PROOF OF WORK CARDS */
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: border-color 0.2s, background 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .proof-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .proof-card.blue::after { background: var(--blue); }
+        .proof-card.teal::after { background: var(--teal); }
+        .proof-card.purple::after { background: #7c3aed; }
+
+        .proof-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.03);
+        }
+        .proof-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .proof-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .proof-tag.blue { color: var(--blue-light); }
+        .proof-tag.teal { color: var(--teal-light); }
+        .proof-tag.purple { color: #a78bfa; }
+
+        .proof-card p {
+            color: var(--muted2);
+            font-size: 13px;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .proof-link {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        .proof-link:hover { color: #fff; }
+
+        /* CAREER ARC */
+        .career-bg { background: var(--bg-card); }
+        .timeline { position: relative; padding-left: 32px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px; top: 6px; bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, #2563eb, #1e293b);
+            background: linear-gradient(to bottom, var(--blue), rgba(37,99,235,0.1));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: var(--blue);
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--blue);
+        }
+        .timeline-dot.dim {
+            background: var(--muted);
+            box-shadow: 0 0 0 2px var(--muted);
+        }
+        .timeline-role {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .timeline-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        .timeline-company {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blue-light);
+        }
+        .timeline-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .timeline-date.dim { color: var(--muted); }
+        .timeline-desc {
+            color: var(--muted2);
+            font-size: 14px;
+            line-height: 1.75;
+            max-width: 680px;
+        }
+        .timeline-desc strong { color: var(--text); font-weight: 600; }
+
+        /* DESIGN SYSTEMS */
+        .design-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .design-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+        .design-card:hover { border-color: var(--border-hover); }
+        .design-card-icon {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .design-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .design-card p {
+            font-size: 13px;
+            color: var(--muted2);
+            line-height: 1.7;
+        }
+        .design-card p strong { color: var(--text); font-weight: 600; }
+
+        /* R&D */
+        .rd-bg { background: rgba(255,255,255,0.015); }
+        .rd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .rd-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: border-color 0.2s;
+        }
+        .rd-card:hover { border-color: var(--border-hover); }
+        .rd-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .rd-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            font-weight: 900;
+        }
+        .rd-icon.blue { background: rgba(37,99,235,0.12); color: var(--blue-light); }
+        .rd-icon.amber { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .rd-icon.teal { background: rgba(13,148,136,0.12); color: var(--teal-light); }
+
+        .rd-gh-link {
+            color: var(--muted);
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .rd-gh-link:hover { color: #fff; }
+        .rd-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .rd-card p {
+            font-size: 13px;
+            color: var(--muted2);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .rd-card p strong { color: var(--text); font-weight: 600; }
+        .rd-brief-link {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid var(--border);
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .rd-brief-link:hover { color: #fff; border-color: var(--border-hover); }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+        .footer-nav-bar {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 32px;
+        }
+        .footer-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-logo-icon {
+            width: 28px; height: 28px;
+            background: var(--blue);
+            border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .footer-logo-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+        }
+        .footer-nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .footer-nav-links a {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-nav-links a:hover { color: #fff; }
+        .footer-icons {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-icons a {
+            color: var(--muted);
+            font-size: 17px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-icons a:hover { color: #fff; }
+
+        .footer-main {
+            padding: 64px 32px;
+        }
+        .footer-main-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .footer-edu h3 {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .edu-item {
+            margin-bottom: 20px;
+        }
+        .edu-degree {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .edu-school {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .footer-cta {
+            text-align: right;
+        }
+        .footer-cta-label {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: clamp(28px, 4vw, 44px);
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .footer-cta-sub {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        .footer-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0a66c2;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .footer-cta-btn:hover { background: #0958a8; transform: translateY(-1px); }
+
+        .footer-bottom {
+            padding: 16px 32px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-bottom p {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #1e293b;
+        }
+
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+            .hero-photo-wrap { display: none; }
+            .cards-grid, .design-cards, .rd-cards { grid-template-columns: 1fr; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            nav .nav-links { display: none; }
+            .footer-main-inner { grid-template-columns: 1fr; }
+            .footer-cta { text-align: left; }
+            .footer-nav-links { display: none; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
+<body>
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 border-b border-slate-800/50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white">PG</div>
-                <span class="font-black text-xl tracking-tighter text-white">Peter Good</span>
-            </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                <a href="#work" class="hover:text-white transition">Enterprise Work</a>
-                <a href="#experience" class="hover:text-white transition">Experience</a>
-                <a href="#rd" class="hover:text-white transition">React R&D</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="text-slate-400 hover:text-white transition text-xl">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="Peter_Good_Frontend_Portfolio.pdf" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-blue-500 transition shadow-lg shadow-blue-500/20">
-                    Resume <i class="fas fa-external-link ml-2"></i>
-                </a>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">P</div>
+                <span class="nav-logo-name">Peter Good</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#work">Enterprise Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#design">Design Systems</a></li>
+                <li><a href="#rd">Strategic R&D</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://github.com/Peterbgood" target="_blank" class="nav-icon-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="nav-icon-link"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
-        <div class="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 items-center relative z-10">
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-inner">
             <div>
-                <span class="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Senior Frontend Engineer</span>
-                
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none text-white">
-                    Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Enterprise</span> Excellence
-                </h1>
-                
-                <p class="text-xl text-slate-400 max-w-lg leading-relaxed mb-6">
-                    Strategic Senior Engineer with over 13 years of experience architecting high-stakes **React** ecosystems. Expert in bridging legacy financial infrastructure with modern **Vite** workflows while enforcing rigorous **WCAG 2.2 AA** accessibility standards[cite: 5, 7, 35].
+                <p class="hero-label">Senior Frontend Engineer <span>|</span> Technical Solutions Architect</p>
+                <h1 class="hero-title">Modernizing Enterprise<br>Platform Infrastructure</h1>
+                <p class="hero-desc">
+                    13+ years architecting scalable web platforms for global financial institutions. Bridging legacy enterprise systems with modern <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Vite</strong> while maintaining <strong>WCAG 2.2 AA</strong> standards.
                 </p>
-
-                <div class="flex flex-wrap gap-2 mb-10">
-                    <span class="tech-badge border-blue-500/50 text-blue-400">React</span>
-                    <span class="tech-badge border-blue-400/50 text-blue-300">TypeScript</span>
-                    <span class="tech-badge border-purple-500/50 text-purple-400">Vite</span>
-                    <span class="tech-badge border-emerald-500/50 text-emerald-400">Tailwind</span>
-                    <span class="tech-badge border-orange-500/50 text-orange-400">Figma</span>
-                </div>
-                
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://github.com/Peterbgood" target="_blank" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-blue-500 hover:text-white transition flex items-center gap-2 shadow-xl shadow-white/5">
-                        View GitHub <i class="fab fa-github text-sm"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="glass-card border border-slate-700 px-8 py-4 rounded-2xl font-bold hover:border-slate-500 transition text-white">
-                        Connect
-                    </a>
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="btn-primary">Let's Connect</a>
+                    <a href="Peter_Good_Frontend_Portfolio.pdf" target="_blank" class="btn-secondary">Download Resume</a>
                 </div>
             </div>
-            
-            <div class="flex justify-center md:justify-end">
-                <div class="img-container">
-                    <img src="peter.PNG" alt="Peter Good" class="relative w-full max-w-md rounded-3xl border border-slate-700 shadow-2xl transition duration-700">
+            <div class="hero-photo-wrap">
+                <img src="peter.PNG" alt="Peter Good" class="hero-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hero-photo-placeholder" style="display:none;">
+                    <span>Photo</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-20 border-b border-slate-800/50 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div>
-                <p class="text-5xl font-black text-white">13+ Yrs</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">FIS Career [cite: 44]</p>
+    <!-- PROOF OF WORK -->
+    <section id="work" style="background: var(--bg);">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Institutional Proof-of-Work</h2>
             </div>
-            <div>
-                <p class="text-5xl font-black text-white">50+</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">Bank Platforms [cite: 17, 45]</p>
-            </div>
-            <div>
-                <p class="text-5xl font-black text-white">500k+</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">Active Users [cite: 6, 17]</p>
-            </div>
-            <div>
-                <p class="text-5xl font-black text-white italic">AA</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-3 font-bold">WCAG Standard [cite: 18, 46]</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-24 bg-slate-900/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="section-title text-5xl mb-16 text-center italic text-white">Professional Career Arc</h2>
-            
-            <div class="relative">
-                <div class="absolute left-3 top-2 bottom-2 timeline-line hidden md:block"></div>
-                
-                <div class="space-y-20">
-                    <div class="relative md:pl-12">
-                        <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-950 hidden md:block"></div>
-                        <h4 class="text-2xl font-bold text-white">Senior Frontend Developer | Technical Solutions Lead</h4>
-                        <div class="flex items-center gap-4 mt-1 mb-4">
-                            <span class="text-blue-500 font-black text-xs uppercase tracking-widest">FIS</span>
-                            <span class="text-slate-500 text-xs font-medium">February 2012 — March 2026 [cite: 15, 44]</span>
-                        </div>
-                        <p class="text-slate-400 leading-relaxed">
-                            Spearheaded R&D initiatives to evaluate **React** and modern build tools like **Vite** as strategic successors to legacy infrastructure[cite: 16, 47]. Architected and launched 50+ responsive banking platforms nationwide while spearheading **WCAG 2.2 AA** accessibility standards across the enterprise[cite: 17, 18, 45, 46].
-                        </p>
-                    </div>
-
-                    <div class="relative md:pl-12">
-                        <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-950 hidden md:block"></div>
-                        <h4 class="text-2xl font-bold text-white">Account Manager / Technical Liaison</h4>
-                        <div class="flex items-center gap-4 mt-1 mb-4">
-                            <span class="text-slate-500 font-black text-xs uppercase tracking-widest">FIS</span>
-                            <span class="text-slate-500 text-xs font-medium">November 2006 — January 2012 [cite: 21, 51]</span>
-                        </div>
-                        <p class="text-slate-400 leading-relaxed">
-                            Managed technical relationships for 50+ financial institutions, ensuring high-stakes product deliveries aligned with complex business logic and regulatory requirements[cite: 22, 52, 53].
-                        </p>
-                    </div>
+            <div class="cards-grid">
+                <div class="proof-card blue">
+                    <h3>Geo. D. Warthen Bank</h3>
+                    <span class="proof-tag blue">Enterprise Platform Build</span>
+                    <p>"Delivered a secure, high-scale responsive platform with 100% adherence to WCAG accessibility compliance."</p>
+                    <a href="https://www.gdwbank.com/" target="_blank" class="proof-link">Visit Site <i class="fas fa-external-link-alt" style="font-size:9px;"></i></a>
+                </div>
+                <div class="proof-card teal">
+                    <h3>Vast Bank</h3>
+                    <span class="proof-tag teal">CMS Migration & Architecture</span>
+                    <p>"Modernized multi-tenant architecture for improved cross-browser stability and client user trust."</p>
+                    <a href="https://www.vast.bank/" target="_blank" class="proof-link">Visit Site <i class="fas fa-external-link-alt" style="font-size:9px;"></i></a>
+                </div>
+                <div class="proof-card purple">
+                    <h3>Fidelity Bank</h3>
+                    <span class="proof-tag purple">Frontend Modernization</span>
+                    <p>"Led mobile-first architecture rebuild, balancing regulatory requirements with high-performance UX standards."</p>
+                    <a href="http://www.fbot.com/" target="_blank" class="proof-link">Visit Site <i class="fas fa-external-link-alt" style="font-size:9px;"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="work" class="py-24 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12 text-center md:text-left">
-                <h2 class="section-title text-5xl italic text-white">Institutional Proof-of-Work</h2>
-                <p class="text-slate-500 mt-2">Enterprise deployments for leading financial institutions[cite: 17, 45].</p>
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stats-inner">
+            <div>
+                <p class="stat-number">13+ Yrs</p>
+                <p class="stat-label">FIS Career</p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-blue-600">
-                    <h3 class="text-2xl font-bold mb-1 text-white">Geo. D. Warthen Bank</h3>
-                    <p class="text-blue-400 text-xs font-black uppercase tracking-widest mb-6">Core Architecture Build</p>
-                    <p class="text-slate-400 italic mb-8">"Delivered a secure, high-scale responsive platform with 100% adherence to WCAG accessibility compliance."</p>
-                    <a href="https://www.gdwbank.com/" target="_blank" class="text-sm font-bold text-white hover:text-blue-400 flex items-center gap-2">
-                        Visit Site <i class="fas fa-external-link-alt text-[10px]"></i>
+            <div>
+                <p class="stat-number">50+</p>
+                <p class="stat-label">Bank Platforms</p>
+            </div>
+            <div>
+                <p class="stat-number">500k+</p>
+                <p class="stat-label">Active Users</p>
+            </div>
+            <div>
+                <p class="stat-number">Same-Day</p>
+                <p class="stat-label">Bug Resolution</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAREER ARC -->
+    <section id="experience" class="career-bg">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Professional Career Arc</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-role">Senior Frontend Developer | Platform Modernization — FIS</p>
+                    <div class="timeline-meta">
+                        <span class="timeline-company">2012 — March 2026</span>
+                    </div>
+                    <p class="timeline-desc">
+                        Led internal <strong>Research & Development (R&D)</strong> to evaluate React and modern build tools like <strong>Vite</strong> as strategic successors to legacy infrastructure. Architected and launched 50+ responsive banking platforms nationwide while spearheading <strong>WCAG 2.2 AA</strong> accessibility standards across the enterprise.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot dim"></div>
+                    <p class="timeline-role">Account Manager / Technical Liaison — FIS</p>
+                    <div class="timeline-meta">
+                        <span class="timeline-company" style="color:var(--muted);">2006 — 2012</span>
+                    </div>
+                    <p class="timeline-desc">
+                        Managed technical relationships for 50+ financial institutions, ensuring high-stakes product deliveries aligned with complex business logic and regulatory requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN SYSTEMS -->
+    <section id="design" style="background: var(--bg);">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Design Systems & UX</h2>
+                <p class="section-sub">Expert-level bridge between high-fidelity UI design and enterprise frontend architecture.</p>
+            </div>
+            <div class="design-cards">
+                <div class="design-card">
+                    <div class="design-card-icon" style="background: rgba(37,99,235,0.1); color: var(--blue-light);">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h4>Figma to Production</h4>
+                    <p>Translating complex design files into <strong>clean, reusable code</strong>. Deeply familiar with Figma Variables, Dev Mode, and maintaining 1:1 parity between design and React.</p>
+                </div>
+                <div class="design-card">
+                    <div class="design-card-icon" style="background: rgba(245,158,11,0.1); color: #fbbf24;">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h4>Atomic Engineering</h4>
+                    <p>Architecting <strong>Design Tokens</strong> and Tailwind configurations that scale. Ensuring styling consistency across multi-tenant enterprise platforms.</p>
+                </div>
+                <div class="design-card">
+                    <div class="design-card-icon" style="background: rgba(13,148,136,0.1); color: var(--teal-light);">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h4>Accessible Design</h4>
+                    <p>Integrating <strong>WCAG 2.2 AA</strong> compliance directly into the design workflow, focusing on color contrast and screen-reader logic before a single line of code is written.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC R&D -->
+    <section id="rd" class="rd-bg">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Strategic R&D & Specialization</h2>
+                <p class="section-sub">Engineering initiatives leveraging modern tooling for enterprise-scale platforms.</p>
+            </div>
+            <div class="rd-cards">
+                <div class="rd-card">
+                    <div class="rd-card-header">
+                        <div class="rd-icon blue" style="font-size:14px; font-weight:900;">R</div>
+                        <a href="https://github.com/Peterbgood/modern-bank-landing" target="_blank" class="rd-gh-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h4>Platform CRUD Architecture</h4>
+                    <p>Implementing high-fidelity <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Vite</strong> patterns for state persistence and dynamic data filtering in enterprise workflows.</p>
+                    <a href="https://github.com/Peterbgood/modern-bank-landing" target="_blank" class="rd-brief-link">Technical Brief <i class="fas fa-external-link-alt" style="font-size:8px;"></i></a>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-card-header">
+                        <div class="rd-icon amber" style="font-size:14px; font-weight:900;">A</div>
+                        <a href="https://github.com/Peterbgood/marketing-crm" target="_blank" class="rd-gh-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h4>Modular UI Systems</h4>
+                    <p>Maintaining <strong>working knowledge</strong> of Angular for modular, multi-tenant design evaluations within regulated environments.</p>
+                    <a href="https://github.com/Peterbgood/marketing-crm" target="_blank" class="rd-brief-link">Technical Brief <i class="fas fa-external-link-alt" style="font-size:8px;"></i></a>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-card-header">
+                        <div class="rd-icon teal" style="font-size:14px; font-weight:900;">V</div>
+                        <a href="https://github.com/Peterbgood/Career-Tracker" target="_blank" class="rd-gh-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h4>Reactive Financial Tools</h4>
+                    <p>Utilizing banking domain expertise and <strong>working knowledge</strong> of Vue 3 to prototype reactive comparison tools for complex financial data sets.</p>
+                    <a href="https://github.com/Peterbgood/Career-Tracker" target="_blank" class="rd-brief-link">Technical Brief <i class="fas fa-external-link-alt" style="font-size:8px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-nav-bar">
+            <div class="footer-nav-inner">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">P</div>
+                    <span class="footer-logo-name">Peter Good</span>
+                </div>
+                <ul class="footer-nav-links">
+                    <li><a href="#work">Enterprise Work</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#design">Design Systems</a></li>
+                    <li><a href="#rd">Strategic R&D</a></li>
+                </ul>
+                <div class="footer-icons">
+                    <a href="https://github.com/Peterbgood" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-main-inner">
+                <div class="footer-edu">
+                    <h3>Education & Credentials</h3>
+                    <div class="edu-item">
+                        <p class="edu-degree">A.S. Web Development</p>
+                        <p class="edu-school">St. Petersburg College, 2022</p>
+                    </div>
+                    <div class="edu-item">
+                        <p class="edu-degree">Web Development Certification</p>
+                        <p class="edu-school">St. Petersburg College, 2015</p>
+                    </div>
+                </div>
+                <div class="footer-cta">
+                    <p class="footer-cta-label">Open for Strategic Opportunities.</p>
+                    <p class="footer-cta-sub">Remote or on-site roles.</p>
+                    <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="footer-cta-btn">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
                     </a>
                 </div>
-
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-emerald-600">
-                    <h3 class="text-2xl font-bold mb-1 text-white">Vast Bank</h3>
-                    <p class="text-emerald-400 text-xs font-black uppercase tracking-widest mb-6">CMS Migration</p>
-                    <p class="text-slate-400 italic mb-8">"Modernized multi-tenant architecture for improved cross-browser stability and client user trust."</p>
-                    <a href="https://www.vast.bank/" target="_blank" class="text-sm font-bold text-white hover:text-emerald-400 flex items-center gap-2">
-                        Visit Site <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all border-b-4 border-b-purple-600">
-                    <h3 class="text-2xl font-bold mb-1 text-white">Fidelity Bank</h3>
-                    <p class="text-purple-400 text-xs font-black uppercase tracking-widest mb-6">Frontend Modernization</p>
-                    <p class="text-slate-400 italic mb-8">"Led mobile-first architecture rebuild, balancing regulatory requirements with high-performance UX."</p>
-                    <a href="http://www.fbot.com/" target="_blank" class="text-sm font-bold text-white hover:text-purple-400 flex items-center gap-2">
-                        Visit Site <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </a>
-                </div>
             </div>
         </div>
-    </section>
 
-    <section id="rd" class="py-24 bg-slate-900/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title text-5xl mb-4 italic text-white">Strategic React R&D</h2>
-            <p class="text-slate-400 mb-12">Performance-driven UI patterns and specialized React infrastructure[cite: 7, 37].</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 group hover:border-blue-500/30 transition-all">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500">
-                            <i class="fas fa-university text-2xl"></i>
-                        </div>
-                        <a href="https://github.com/Peterbgood/modern-bank-landing" target="_blank" class="text-slate-600 hover:text-white transition">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-white">Modern Bank UI</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">High-conversion institutional landing architecture built with **React** and **Tailwind CSS**.</p>
-                </div>
-
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 group hover:border-emerald-500/30 transition-all">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
-                            <i class="fas fa-chart-line text-2xl"></i>
-                        </div>
-                        <a href="https://github.com/Peterbgood/marketing-crm" target="_blank" class="text-slate-600 hover:text-white transition">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-white">Marketing CRM</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Enterprise dashboard architecture for customer dataset management and data-informed UI/UX[cite: 27].</p>
-                </div>
-
-                <div class="glass-card border border-slate-800 rounded-3xl p-8 group hover:border-purple-500/30 transition-all">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500">
-                            <i class="fas fa-database text-2xl"></i>
-                        </div>
-                        <a href="https://github.com/Peterbgood/Career-Tracker" target="_blank" class="text-slate-600 hover:text-white transition">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-white">Career Tracker</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Advanced **CRUD** architecture featuring persistent state and dynamic filtering workflows[cite: 24, 57].</p>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2026 Peter Good | Architected with React & Tailwind CSS</p>
         </div>
-    </section>
-
-    <footer class="py-12 text-center border-t border-slate-900 bg-slate-950">
-        <div class="flex justify-center gap-8 mb-6">
-            <a href="https://www.linkedin.com/in/peter-good/" target="_blank" class="text-slate-500 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
-            <a href="https://github.com/Peterbgood" target="_blank" class="text-slate-500 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-            <a href="mailto:peterwgood@gmail.com" class="text-slate-500 hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
-        </div>
-        <p class="text-[10px] text-slate-700 tracking-widest uppercase">
-            © 2026 PETER GOOD | ARCHITECTED WITH REACT & TAILWIND CSS
-        </p>
     </footer>
 
 </body>
